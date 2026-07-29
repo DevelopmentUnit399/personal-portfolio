@@ -3,7 +3,7 @@
 // kfX86Q8qm0-WJvdZv
 
 let isModalOpen = false
-let contrastToggle = false
+let contrastToggle = true
 const scaleFactor = 1 / 20;
 
 function moveBackground(event) {

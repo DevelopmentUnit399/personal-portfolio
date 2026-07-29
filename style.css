@@ -198,7 +198,8 @@ LANDING PAGE
 .header__para {
     font-size: 24px;
     line-height: 2;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
 }
 
 .social__list {
@@ -672,10 +673,6 @@ SHAPES
         font-size: 80px;
     }
 
-    .header__para {
-        font-size: 20px;
-    }
-
     .modal {
         top: 0;
         left: 0;
@@ -689,6 +686,10 @@ SHAPES
     .modal__half {
         width: 100%;
     }
+
+    .header__para {
+        width: 100%;
+    }
 }
 
 /* Small phones */
@@ -697,12 +698,16 @@ SHAPES
         font-size: 52px;
     }
 
-    .header__para {
-        font-size: 18px;
-    }
-
     .nav__link:first-child {
         display: none;
+    }
+
+    .header__content {
+        width: 100%;
+    }
+
+    .header__para {
+        width: 100%;
     }
 
     .project__description--para {
