@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="style.css">
     <script src="app.js"></script>
     <script src="https://kit.fontawesome.com/66e0a4dc21.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "kfX86Q8qm0-WJvdZv",
+      });
+   })();
+</script>
 </head>
 <body>
-    <section id="landing-page">
+    <section id="landing-page" onmousemove="moveBackground(event)">
         <nav>
             <figure>
                 <img id="personal-logo" src="assets/main-logo.png" alt="">
             </figure>
             <ul class="nav__link--list">
-                <li class="nav__link">
+                <li class="nav__link" onclick="toggleModal()">
                     <a href="#" class="
                     nav__link--anchor
                     link__hover-effect
@@ -29,18 +39,19 @@
                     link__hover-effect--black
                     ">Projects</a>
                 </li>
-                <li class="nav__link">
+                <li class="nav__link" onclick="toggleModal()">
                     <a href="#" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black
                     ">Contact</a>
                 </li>
-                <li class="nav__link click">
+                <li class="nav__link click" onclick="toggleContrast()">
                     <a href="#" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black
+                    no__effect
                     "><i class="fa-solid fa-circle-half-stroke"></i></a>
                 </li>
             </ul>
@@ -51,7 +62,8 @@
                 <h1 class="title">Hey</h1>
                 <h1 class="title green">I'm Garrett</h1>
                 <p class="header__para">I'm a <b class="green">Frontend Software Engineer</b> with a strong passion for building web applications with great user experiences.
-                    <br> Here's a bit more <b class="green">about me</b></p>
+                    <br>
+                    <vr></vr>Here's a bit more <b class="green click" onclick="toggleModal()">about me</b></p>
                 <div class="social__list">
                     <a href="https://www.linkedin.com/in/garrett-uichanco-362327277/" target="_blank" class="social__link click">
                         <i class="fa-brands fa-linkedin-in"></i>
@@ -66,7 +78,7 @@
             </div>
         </header>
 
-        <button class="mail__btn click">
+        <button class="mail__btn click" onclick="toggleModal()">
             <i class="fa-solid fa-envelope"></i>
         </button>
         <a href="#projects" class="scroll">
@@ -80,6 +92,7 @@
                 <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer</h4>
                 <p class="modal__para">
                     I'm a 26 year-old <b class="green">frontend software engineer</b> with a strong passion for developing websites with great <b class="green">user experiences</b>.
+                    <br>
                     <br>
                     I currently work on extremely difficult engineering problems and learn from a team consisting of some of the most <b class="green">talented</b> and <b class="green">experienced</b> software engineers every day.
                 </p>
@@ -103,11 +116,52 @@
                     </figure>
                 </div>
             </div>
-            <div class="modal__half modal__contact">Let's have a chat!</div>
+            <div class="modal__half modal__contact">
+                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+                <h3 class="modal__title modal__title--contact">
+                    Let's have a chat!
+                </h3>
+                <h3 class="modal__sub-title modal__sub-title--contact">
+                    I'm currently open to new opportunities! I look forward to hearing from you!
+                </h3>
+
+                <form id="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input class="input" name="user_name" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">E-mail</label>
+                        <input class="input" name="user_email" type="email" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea class="input" name="message" type="text" required></textarea>
+                    </div>
+                    <button id="contact__submit" class="form__submit">Send it my way!</button>
+                </form>
+
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks for the message! Looking forward to speaking to you soon!
+                </div>
+            </div>
         </div>
+
+        <img src="assets/shape-images/semi-circle.svg" class="shape shape--0">
+        <img src="assets/shape-images/circle.svg" class="shape shape--1">
+        <img src="assets/shape-images/squiggly.svg" class="shape shape--2">
+        <img src="assets/shape-images/circle.svg" class="shape shape--3">
+        <img src="assets/shape-images/triangle.svg" class="shape shape--4">
+        <img src="assets/shape-images/circle.svg" class="shape shape--5">
+        <img src="assets/shape-images/squiggly.svg" class="shape shape--6">
+        <img src="assets/shape-images/circle.svg" class="shape shape--7">
+        <img src="assets/shape-images/semi-circle.svg" class="shape shape--8">
     </section>
 
-    <section id="projects">
+    <section id="projects" onmousemove="moveBackground(event)">
         <div class="container">
             <div class="row">
                 <h2 class="section__title">
@@ -146,7 +200,7 @@
         </div>
     </section>
 
-    <footer>
+    <footer onmousemove="moveBackground(event)">
         <div class="container">
             <div class="row footer__row">
             <figure>
@@ -167,9 +221,9 @@
                 <a href="#" class="footer__social--link
                 link__hover-effect
                 link__hover-effect--white
-                ">Contact</a>
+                " onclick="toggleModal()">Contact</a>
 
-                <a href="#" class="footer__social--link
+                <a href="assets/Test Frontend Software Engineer Technician.pdf" target="_blank" class="footer__social--link
                 link__hover-effect
                 link__hover-effect--white
                 ">Resume</a>
